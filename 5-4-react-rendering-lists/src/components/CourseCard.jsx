@@ -3,7 +3,7 @@ import TaskItem from "./TaskItem";
 
 export default function CourseCard({ course, index, onMutateCourse }) {
   /* =========================================================
-     TASK 4 ‚Äî Interactivity (Toggle + Delete ONLY)
+     TASK 4 ó Interactivity (Toggle + Delete ONLY)
      ---------------------------------------------------------
      1) Implement toggleTask(id) using onMutateCourse + .map()
      2) Implement deleteTask(id) using onMutateCourse + .filter()
@@ -26,7 +26,7 @@ export default function CourseCard({ course, index, onMutateCourse }) {
       <header className="cardHeader">
         <h2>{course.title}</h2>
 
-        {/* TODO (TASK 3): Show ‚ÄúAll caught up‚Äù badge ONLY when:
+        {/* TODO (TASK 3): Show ìAll caught upî badge ONLY when:
             - course has tasks AND
             - all tasks are done
             Use logical && */}
@@ -37,13 +37,14 @@ export default function CourseCard({ course, index, onMutateCourse }) {
         {/* DISPLAY ONLY: Show a message when there are no tasks */}
         
         <ul className="tasks">
-          {/* TODO (TASK 2): Render tasks using course.tasks.map(...)
-              For each task, render <TaskItem /> and pass:
-                - key={task.id}
-                - task={task}
-                - onToggle={toggleTask}
-                - onDelete={deleteTask}
-          */}
+          {course.tasks.map((task) => (
+            <TaskItem
+              key={task.id}
+              task={task}
+              onToggle={toggleTask}
+              onDelete={deleteTask}
+            />
+          ))}
         </ul>
       </section>
     </article>
