@@ -12,17 +12,14 @@ export default function DueBadge({ dueDate }) {
   const d = daysUntil(dueDate);
 
   let label = "";
-  let className = "badge";
 
   if (d < 0) {
     label = "Overdue";
-    className = "badge danger";
   } else if (d === 0) {
     label = "Due today";
-    className = "badge warn";
   } else {
     label = `Due in ${d} days`;
   }
 
-  return <span className={className}>{label}</span>;
+  return <span className="badge">{label}</span>;
 }
